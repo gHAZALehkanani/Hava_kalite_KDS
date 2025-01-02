@@ -1,0 +1,218 @@
+/* Genel Stiller */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f7fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden; /* Prevent scrolling */
+}
+#station-name {
+  position: fixed;
+  top: -50px;
+  left: 12%;
+  transform: translateX(-50%);
+  background-color: #073835; /* Yeşil arka plan */
+  color: white; /* Beyaz yazı rengi */
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: top 0.5s ease; /* Hareket geçişi */
+  z-index: 1000;
+}
+
+/* Hareket için "visible" sınıfı */
+#station-name.visible {
+  top: 20px; /* Görünür konum */
+}
+
+
+/* Üst Panel */
+.top-panel {
+  width: 100%;
+  background: linear-gradient(90deg, #006666, #008080);
+  color: #ffffff;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.panel-title {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Kenardan Çıkan Butonlar */
+.side-buttons {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.side-button {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #008080, #00b8b8);
+  color: #ffffff;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Text adjustment for the Dashboard button */
+.side-button#dashboardButton::after {
+  content: "Dash.."; /* Show "Dash.." when closed */
+}
+
+.side-button#dashboardButton:hover::after {
+  content: "Dashboard"; /* Full text when hovered */
+}
+
+.side-button:hover {
+  width: 140px;
+  background: linear-gradient(135deg, #006666, #008080);
+  transform: scale(1.05);
+}
+
+/* Main Board Container */
+.main-board {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  height: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+/* Ana İçerik */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.controls {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.controls h2 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.control-group {
+  display: inline-block;
+}
+
+.control-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.control-select {
+  padding: 8px 16px;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  background: #ffffff;
+  color: #34495e;
+}
+
+/* Grafik ve Bilgi Kutuları */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.chart-container {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-right: 20px; /* Push chart slightly right */
+}
+
+#pollutantsChart {
+  width: 100%;
+  height: auto;
+  max-width: 350px;
+  max-height: 350px;
+}
+
+/* Bilgi Kutuları */
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.source-box {
+  width: 600px;
+  height: 95px;
+  padding-left: 20px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+#sourceCO {
+  background: linear-gradient(135deg, #ff6384, #ff8ca1);
+}
+
+#sourceNO2 {
+  background: linear-gradient(135deg, #36a2eb, #5fb1f5);
+}
+
+#sourcePM10 {
+  background: linear-gradient(135deg, #ffcd56, #ffe082);
+}
+
+#sourceSO2 {
+  background: linear-gradient(135deg, #4bc0c0, #7ed3d3);
+}
+
+.source-box:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}

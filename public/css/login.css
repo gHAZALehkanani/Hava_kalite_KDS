@@ -1,0 +1,81 @@
+/* Genel stil */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../img/KDSback.jpg') no-repeat center center fixed; /* Arka plan resmi */
+    background-size: cover; /* Resmi ekran boyutuna sığdırır */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* Header stil */
+header {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 2;
+    letter-spacing: 1.5px;
+}
+
+/* Form stil */
+form {
+    background: rgba(255, 255, 255, 0.85); /* Hafif şeffaf arka plan */
+    padding: 30px;
+    border-radius: 15px; /* Daha yuvarlak köşeler */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Derinlik hissi için daha büyük gölge */
+    width: 350px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    backdrop-filter: blur(5px); /* Cam efekti */
+}
+
+/* Input alanı */
+form input {
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* İç gölge */
+}
+
+form input:focus {
+    outline: none;
+    border-color: #87ceeb;
+    box-shadow: 0 0 8px rgba(135, 206, 235, 0.7);
+}
+
+/* Button stil */
+form button {
+    padding: 12px 15px;
+    font-size: 1.1rem;
+    color: #ffffff;
+    background: linear-gradient(90deg, #006666, #004444);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+form button:hover {
+    background: linear-gradient(90deg, #005f8a, #008cba);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+form button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}

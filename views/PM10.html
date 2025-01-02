@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM10</title>
+    <link rel="stylesheet" href="/css/params.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>PM10 Değer Analizi</h1>
+    <div id="station-name"></div>
+    <div>
+        <label for="targetInput">Yeni Hedef Değeri %: </label>
+        <input type="number" id="targetInput" value="40">
+        <button id="updateTarget">Hedef Güncelle</button>
+
+        <label for="reductionInput">Kirlilik Kaynağı Azalış (%)</label>
+        <input type="number" id="reductionInput" value="10" min="0" max="100">
+        <button id="calculateReduction">Azalımı Hesapla</button>
+    </div>
+    <div class="chart-container">
+        <canvas id="pm10Chart" width="800" height="400"></canvas>
+    </div>
+
+    <div style="flex: 1; padding: 10px; background-color: #f8f9fa; border-left: 1px solid #ddd;">
+        <h3>Kirlilik Kaynağı</h3>
+        <ul id="pollutionSource"></ul>
+    </div>
+
+    
+
+    <script src="/js/PM10.js"></script>
+</body>
+</html>

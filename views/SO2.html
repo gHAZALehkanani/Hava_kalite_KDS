@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SO₂</title>
+    <link rel="stylesheet" href="/css/params.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>SO₂ Değer Analizi</h1>
+    <div id="station-name"></div>
+    <div>
+        <label for="targetInput">Yeni Hedef Değeri %: </label>
+        <input type="number" id="targetInput" value="300">
+        <button id="updateTarget">Hedef Güncelle</button>
+
+        <label for="reductionInput">Kirlilik Kaynağı Azalış (%)</label>
+        <input type="number" id="reductionInput" value="10" min="0" max="100">
+        <button id="calculateReduction">Azalımı Hesapla</button>
+    </div>
+    <div class="chart-container">
+        <canvas id="so2Chart" width="800" height="400"></canvas>
+    </div>
+    <script src="/js/SO2.js"></script>
+</body>
+</html>

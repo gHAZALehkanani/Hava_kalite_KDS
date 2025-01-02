@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hava Kalite Kontrol Dashboard</title>
+    <link rel="stylesheet" href="/css/dash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Hava Kalite Karar Destek Sistemi
+      <div id="station-name"></div>
+    </h1>
+    
+</header>
+<main>
+  <div class="side-buttons">
+    <div class="side-button" id="mapButton" title="Harita">
+      <span></span>
+    </div>
+    <div class="side-button" id="analysisButton" title="Kaynak Analizi">
+      <span></span>
+    </div>
+    <div class="side-button" id="PM10B" title="PM10B">
+      <span></span>
+    </div>
+    <div class="side-button" id="COB" title="COB">
+      <span></span>
+    </div>
+    <div class="side-button" id="NO2B" title="NO2B">
+      <span></span>
+    </div>
+    <div class="side-button" id="SO2B" title="SO2B">
+      <span></span>
+    </div>
+  </div>
+  
+    
+
+        <div class="chart-container">
+          <section class="year-selection">
+            <label for="yearSelect2">Hava Kalite İndeksi Yılı:</label>
+            <select id="yearSelect2"></select>
+        </section>
+            <h2>Hava Kalite İndeksi</h2>
+            <canvas id="airQualityIndexChart"></canvas>
+        </div>
+    </section>
+
+    <section class="dashboard">
+      <div class="chart-container">
+        <section class="year-selection">
+          <label for="yearSelect1">Hava Kirletici Unsurlar Yılı:</label>
+          <select id="yearSelect1"></select>
+      </section>
+        <h2>Hava Kirletici Unsurlar</h2>
+    
+        <!-- Hava kirletici unsurlar için butonlar -->
+        <div id="pollutantButtons" style="margin-bottom: 15px;">
+            <!-- Butonlar JavaScript tarafından dinamik olarak eklenecek -->
+        </div>
+        <!-- Grafik -->
+        <canvas id="pollutantsChart"></canvas>
+        </div>
+
+</main>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

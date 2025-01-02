@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hava Kalitesi Dağılımı</title>
+    <link rel="stylesheet" href="/css/analysis.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <!-- Üst Panel -->
+    <header class="top-panel">
+        <h1 class="panel-title">Hava Kalitesi Analiz Paneli</h1>
+        <div id="station-name"></div>
+    </header>
+
+    <!-- Kenardan Çıkan Butonlar -->
+    <div class="side-buttons">
+        <button id="mapButton" class="side-button">Harita</button>
+        <button id="dashboardButton" class="side-button"></button>
+    </div>
+
+    <!-- Ana İçerik Board -->
+    <div class="main-board">
+        <main class="main-content">
+            <section class="controls">
+                <h2>Hava Kalitesi Dağılımı</h2>
+                <div class="control-group">
+                    <label for="year" class="control-label">Yıl Seçiniz:</label>
+                    <select id="year" class="control-select" onchange="fetchData()"></select>
+                </div>
+            </section>
+
+            <!-- Grafik ve Bilgi Kutuları -->
+            <section class="content-wrapper">
+                <div class="chart-container">
+                    <canvas id="pollutantsChart"></canvas>
+                </div>
+                <div class="info-container">
+                    <div class="source-box" id="sourceSO2">SO2 Kaynağı</div>
+                    <div class="source-box" id="sourcePM10">PM10 Kaynağı</div>
+                    <div class="source-box" id="sourceCO">CO Kaynağı</div>
+                    <div class="source-box" id="sourceNO2">NO2 Kaynağı</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/js/analysis.js"></script>
+</body>
+</html>

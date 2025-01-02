@@ -1,0 +1,221 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: linear-gradient(90deg, #006666, #008080);
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+main{
+  margin-left: 60px;
+}
+
+/* Side Buttons */
+.side-buttons {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.side-button {
+  background: linear-gradient(90deg, #006666, #008080);
+  color: white !important;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.side-button:hover {
+  width: 120px;
+  background: linear-gradient(90deg, #004d4d, #006666);
+}
+
+.side-button::after {
+  content: attr(title);
+  position: absolute;
+  left: 70px;
+  color: #fff;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.side-button:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#station-name {
+  position: fixed;
+  top: -50px;
+  left: 12%;
+  transform: translateX(-50%);
+  background-color: #073835; /* Yeşil arka plan */
+  color: white; /* Beyaz yazı rengi */
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: top 0.5s ease; /* Hareket geçişi */
+  z-index: 1000;
+}
+
+/* Hareket için "visible" sınıfı */
+#station-name.visible {
+  top: 20px; /* Görünür konum */
+}
+
+
+/* Pollutant Buttons */
+#pollutantButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pollutant-button {
+  padding: 10px 15px;
+  background: linear-gradient(90deg, #006666, #008080) !important;
+  color: white !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pollutant-button:hover {
+  background: linear-gradient(90deg, #004d4d, #006666) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.pollutant-button.active {
+  border: 2px solid #004d4d !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Chart Containers */
+.chart-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.chart-container h2 {
+  font-size: 1.5rem;
+  color: #008080;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #008080;
+  padding-bottom: 10px;
+}
+
+canvas {
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin: 0 auto;
+  max-height: 300px !important;
+  width: 100% !important;
+}
+
+/* Year Selection */
+.year-selection {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.year-selection label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.year-selection select {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: border 0.3s ease;
+}
+
+.year-selection select:focus {
+  border-color: #008080;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 128, 128, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard {
+      grid-template-columns: 1fr;
+  }
+
+  .side-button {
+      width: 50px;
+      height: 50px;
+  }
+
+  .side-button:hover {
+      width: 100px;
+  }
+
+  .year-selection {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  #pollutantButtons {
+      flex-direction: column;
+  }
+
+  .pollutant-button {
+      width: 100%;
+  }
+}

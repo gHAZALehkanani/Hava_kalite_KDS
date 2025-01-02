@@ -1,0 +1,102 @@
+/* styles.css */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom, #e0f7f7, #f4f4f4);
+    color: #333;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    background: linear-gradient(90deg, #006666, #008080);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#map {
+    height: calc(100vh - 85px); /* Full height minus header height */
+    width: 90%;
+    border: 3px solid #008080;
+    border-radius: 12px;
+    margin: 20px auto;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#map:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+a {
+    color: #008080;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #005555;
+    text-decoration: underline;
+}
+
+/* Leaflet popup styling */
+.leaflet-popup-content {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.leaflet-popup-content h3 {
+    color: #006666;
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+    border-bottom: 2px solid #008080;
+    padding-bottom: 5px;
+}
+
+.leaflet-popup-content p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+}
+
+.leaflet-popup-content a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: linear-gradient(90deg, #006666, #008080);
+    color: white;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.leaflet-popup-content a:hover {
+    background: linear-gradient(90deg, #005555, #006666);
+    transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    header {
+        font-size: 24px;
+        padding: 15px;
+    }
+
+    #map {
+        height: calc(100vh - 70px);
+        width: 95%;
+    }
+}

@@ -1,0 +1,151 @@
+/* Genel Ayarlar */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #f0f4f8, #c9d6df);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 2.0rem;
+    color:  #008080;
+    margin-top: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+/* label ve button arasına boşluk ekle */
+/* Belirli bir id'ye sahip label ve button arasına boşluk ekle */
+label[for="reductionInput"] + #updateTarget {
+    margin-left: 70px; /* Butonun soluna boşluk ekle */
+}
+#station-name {
+    position: fixed;
+    top: -50px;
+    left: 25%;
+    transform: translateX(-50%);
+    background-color: #073835; /* Koyu yeşil arka plan */
+    color: white; /* Beyaz yazı rengi */
+    padding: 8px 16px; /* Daha dar iç boşluk */
+    border-radius: 8px; /* Yuvarlatılmış köşeler */
+    font-size: 14px; /* Daha küçük yazı boyutu */
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: top 0.5s ease; /* Hareket geçişi */
+    z-index: 1000; /* Öncelikli görünüm */
+    max-width: 130px; /* Genişlik sınırı */
+    text-align: center; /* Metni ortala */
+    word-wrap: break-word; /* Uzun metinleri sar */
+    overflow: hidden; /* Taşmaları engelle */
+}
+
+/* Hareket için "visible" sınıfı */
+#station-name.visible {
+    top: 20px; /* Görünür konum */
+}
+
+  
+
+/* Küçük Form Stilleri */
+div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 90%;
+    max-width: 1000px;
+    margin: 10px 0;
+    padding: 10px 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Her bir label ve input buton grubunu küçült */
+label {
+    font-size: 0.9rem;
+    margin-right: 5px;
+    white-space: nowrap; /* Satır kırılmasını engelle */
+}
+
+input[type="number"] {
+    flex: 1; /* Input genişliğini esnek yap */
+    padding: 6px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+    margin-right: 10px;
+    max-width: 100px; /* Maksimum genişlik belirle */
+}
+
+input[type="number"]:focus {
+    border-color: #008080;
+    outline: none;
+}
+
+/* Butonları küçült ve hizala */
+button {
+    flex-shrink: 0; /* Buton genişliği sabit kalır */
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    background: linear-gradient(90deg, #006666, #008080);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+/* Grafik Konteyner */
+.chart-container {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: 95%;
+    max-width: 1000px;
+}
+.chart-tooltip {
+    white-space: normal; /* Metin genişliği taşarsa alt satıra geçsin */
+    word-wrap: break-word; /* Uzun kelimeler bölünsün */
+    max-width: 20px; /* Tooltip maksimum genişliği */
+    line-height: 1.5; /* Satır aralığı */
+}
+
+
+/* Medya Sorguları */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    div {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .chart-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
