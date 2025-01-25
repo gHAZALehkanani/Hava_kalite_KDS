@@ -1,0 +1,43 @@
+GET /
+
+Kullanıcıya views/login.html dosyasını sunar.
+Uygulamanın giriş (login) sayfasını yükler.
+GET /map
+
+Kullanıcıya views/map.html dosyasını sunar.
+Harita görüntüleme sayfasını yükler.
+GET /dashboard
+
+Kullanıcıya views/dashboard.html dosyasını sunar.
+Gösterge tablosu sayfasını yükler.
+GET /analysis
+
+Kullanıcıya views/analysis.html dosyasını sunar.
+Veri analizi sayfasını yükler.
+GET /PM10, GET /SO2, GET /NO2, GET /CO
+
+Sırasıyla views/PM10.html, views/SO2.html, views/NO2.html ve views/CO.html dosyalarını sunar.
+Hava kirliliği ölçütlerine (PM10, SO2, NO2, CO) özel detay sayfalarını yükler.
+API Endpointleri:
+POST /api/login
+
+Kullanıcı adı ve şifre doğrulaması yapar.
+Veritabanındaki users tablosunda verilen kimlik bilgilerini kontrol eder.
+Başarılı girişte { success: true }, aksi halde { success: false, message: '...' } döner.
+GET /api/stations
+
+Tüm istasyonların ID, ad, adres, enlem ve boylam bilgilerini döner.
+Veritabanındaki stations tablosundan veri çeker.
+GET /api/pollutants
+
+Belirli bir yıl ve istasyon ID'si için aylık kirlilik ölçümlerinin (CO, NO2, PM10, SO2) ortalamalarını hesaplar.
+İstek parametreleri:
+year: İsteğe bağlı, varsayılan olarak mevcut yıl.
+stationId: Zorunlu, kirlilik ölçümlerinin alınacağı istasyonun kimliği.
+GET /api/air_quality_index
+
+Belirli bir yıl ve istasyon ID'si için hava kalitesi indeksini (AQI) hesaplar.
+İstek parametreleri:
+year: İsteğe bağlı, varsayılan olarak mevcut yıl.
+stationId: Zorunlu, AQI hesaplaması yapılacak istasyonun kimliği.
+Hava kirliliği ölçümlerine (CO, NO2, PM10, SO2) göre AQI'yi belirler.
