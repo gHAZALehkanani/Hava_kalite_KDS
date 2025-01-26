@@ -56,3 +56,8 @@ GET /api/pollution-source
 Bu endpoint, belirli bir istasyon (stationId), yıl (year) ve kirletici türü (CO, NO2, PM10, SO2) için kirletici kaynaklarını döndürür.
 Sorgu parametreleri kontrol edilir, geçerli bir kirletici türü belirtilmişse veritabanında ilgili kolon dinamik olarak seçilir. 
 İstasyon ve yıl kriterine uyan kaynaklar sorgulanarak benzersiz kaynaklar JSON formatında döndürülür. Veri bulunamazsa boş bir liste ile bilgi mesajı gönderilir.
+
+GET /api/pollutants-data
+Bu endpoint, belirli bir istasyon (stationId) ve yıl (year) için hava kirletici unsurların (CO, NO2, PM10, SO2) aylık ortalama değerlerini döndürür. 
+Yıl belirtilmezse mevcut yıl varsayılan olarak kullanılır. Diğer endpoint'lerden farklı olarak, veriler aylık bazda gruplanmış şekilde sunulur 
+ve her kirletici unsurun trend analizine olanak tanır. Bu, aylık hava kalitesini değerlendirmek için özel bir avantaj sağlar.
