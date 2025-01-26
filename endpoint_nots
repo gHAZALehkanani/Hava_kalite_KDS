@@ -1,43 +1,58 @@
 GET /
-
 Kullanıcıya views/login.html dosyasını sunar.
 Uygulamanın giriş (login) sayfasını yükler.
-GET /map
 
+GET /map
 Kullanıcıya views/map.html dosyasını sunar.
 Harita görüntüleme sayfasını yükler.
-GET /dashboard
 
+GET /dashboard
 Kullanıcıya views/dashboard.html dosyasını sunar.
 Gösterge tablosu sayfasını yükler.
-GET /analysis
 
+GET /analysis
 Kullanıcıya views/analysis.html dosyasını sunar.
 Veri analizi sayfasını yükler.
-GET /PM10, GET /SO2, GET /NO2, GET /CO
 
+GET /PM10, GET /SO2, GET /NO2, GET /CO
 Sırasıyla views/PM10.html, views/SO2.html, views/NO2.html ve views/CO.html dosyalarını sunar.
 Hava kirliliği ölçütlerine (PM10, SO2, NO2, CO) özel detay sayfalarını yükler.
-API Endpointleri:
-POST /api/login
 
+----- API Endpointleri:
+
+POST /api/login
 Kullanıcı adı ve şifre doğrulaması yapar.
 Veritabanındaki users tablosunda verilen kimlik bilgilerini kontrol eder.
 Başarılı girişte { success: true }, aksi halde { success: false, message: '...' } döner.
-GET /api/stations
 
+GET /api/stations
 Tüm istasyonların ID, ad, adres, enlem ve boylam bilgilerini döner.
 Veritabanındaki stations tablosundan veri çeker.
-GET /api/pollutants
 
+GET /api/pollutants
 Belirli bir yıl ve istasyon ID'si için aylık kirlilik ölçümlerinin (CO, NO2, PM10, SO2) ortalamalarını hesaplar.
 İstek parametreleri:
 year: İsteğe bağlı, varsayılan olarak mevcut yıl.
 stationId: Zorunlu, kirlilik ölçümlerinin alınacağı istasyonun kimliği.
-GET /api/air_quality_index
 
+GET /api/air_quality_index
 Belirli bir yıl ve istasyon ID'si için hava kalitesi indeksini (AQI) hesaplar.
 İstek parametreleri:
 year: İsteğe bağlı, varsayılan olarak mevcut yıl.
 stationId: Zorunlu, AQI hesaplaması yapılacak istasyonun kimliği.
 Hava kirliliği ölçümlerine (CO, NO2, PM10, SO2) göre AQI'yi belirler.
+
+GET /api/years
+Bu endpoint, belirli bir istasyon (stationId) için veritabanında kayıtlı olan yılların listesini döndürür. 
+İstasyon kimliği sorgu parametresi olarak alınır ve veritabanındaki `pollutants` tablosunda bu istasyon için kaydedilen yıllar bulunur.
+Yıllar tekrarsız olarak (DISTINCT) ve sıralı şekilde (ORDER BY) döndürülür.
+
+GET /pollution/:stationId/:year
+Bu endpoint, belirli bir istasyon (stationId) ve yıl için kirlilik verilerini döndürür. İstasyon ID ve yıl, URL parametreleri olarak alınır.
+Veritabanında pollution_sources tablosunda belirtilen kriterlere uygun veriler sorgulanır. Sonuç bulunursa ilk veri JSON formatında döndürülür; 
+aksi halde veri bulunamadığı bilgisi ile 404 hatası döner.
+
+GET /api/pollution-source
+Bu endpoint, belirli bir istasyon (stationId), yıl (year) ve kirletici türü (CO, NO2, PM10, SO2) için kirletici kaynaklarını döndürür.
+Sorgu parametreleri kontrol edilir, geçerli bir kirletici türü belirtilmişse veritabanında ilgili kolon dinamik olarak seçilir. 
+İstasyon ve yıl kriterine uyan kaynaklar sorgulanarak benzersiz kaynaklar JSON formatında döndürülür. Veri bulunamazsa boş bir liste ile bilgi mesajı gönderilir.
